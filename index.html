@@ -12,6 +12,7 @@
 <style>
   :root {
     --display: 'Space Grotesk', 'Inter', sans-serif;
+    --hi: #d6ff33;
     --black: #0c0c0c;
     --white: #ffffff;
     --paper: #f4f3ef;
@@ -34,7 +35,7 @@
 
   /* display typeface — Space Grotesk on all headings, labels, data and UI */
   .announce, .nav .brand, .nav .navlink, .btn,
-  .hero .presents, .hero h1, .hero .subline, .hero .manifesto,
+  .hero .presents, .hero h1, .hero .subline,
   .countdown, .sec-head .no, .sec-head .ti,
   .spec .k, .spec .v, .notice .tag, .notice h3,
   .route-stats, .faq summary, .rsvp .lead, .rsvp h2, .rsvp .tickets span,
@@ -160,18 +161,6 @@
     color: rgba(255,255,255,.85);
   }
   .hero .subline i { color: rgba(255,255,255,.4); font-style: normal; margin: 0 .5rem; }
-  .hero .manifesto {
-    margin-top: 2.4rem;
-    font-size: .78rem;
-    font-weight: 600;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--white);
-    border-top: 1px solid var(--line-dk);
-    border-bottom: 1px solid var(--line-dk);
-    padding: .8rem 0;
-  }
-  .hero .manifesto span { color: rgba(255,255,255,.45); margin: 0 .45rem; }
   .hero .cta-row { margin-top: 2.6rem; }
 
   /* ---------- COUNTDOWN ---------- */
@@ -227,8 +216,8 @@
   .spec .note { font-size: .92rem; color: var(--muted); margin-top: .55rem; line-height: 1.5; text-transform: none; letter-spacing: 0; font-weight: 400; }
 
   /* notice (inverted) */
-  .notice { background: var(--black); color: var(--white); padding: 2.2rem 2rem; }
-  .notice .tag { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+  .notice { background: var(--black); color: var(--white); padding: 2.2rem 2rem; border-top: 4px solid var(--hi); }
+  .notice .tag { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--hi); margin-bottom: 1rem; }
   .notice h3 { font-size: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 1rem; line-height: 1.05; }
   .notice p { color: rgba(255,255,255,.82); margin-bottom: 1rem; }
   .notice p:last-child { margin-bottom: 0; }
@@ -243,8 +232,8 @@
   .route-stats .st .n { font-size: 1.9rem; font-weight: 600; letter-spacing: -.02em; line-height: 1; }
   .route-stats .st .l { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
   .route-note { font-size: .92rem; color: var(--muted); max-width: 30rem; margin-top: 1.2rem; }
-  .aid { border: 1px solid var(--ink); padding: 1.8rem 2rem; margin-top: 1.25rem; }
-  .aid-tag { display: inline-block; background: var(--black); color: var(--white); font-family: var(--display); font-size: .64rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: .42rem .7rem; margin-bottom: 1.1rem; }
+  .aid { border: 1px solid var(--ink); border-top: 4px solid var(--hi); padding: 1.8rem 2rem; margin-top: 1.25rem; }
+  .aid-tag { display: inline-block; background: var(--hi); color: var(--black); font-family: var(--display); font-size: .64rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: .42rem .7rem; margin-bottom: 1.1rem; }
   .aid-h { font-family: var(--display); font-size: 1.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: -.01em; line-height: 1.05; margin-bottom: .6rem; }
   .aid-p { color: var(--muted); max-width: 42rem; }
 
@@ -292,7 +281,6 @@
   <p class="presents">Completely Slothed Running Club presents</p>
   <h1>Epic<br>North Run</h1>
   <p class="subline">Towne Lake, McKinney<i>·</i>Sat 7.25<i>·</i>5:30 AM</p>
-  <p class="manifesto">No Signup <span>/</span> No Fee <span>/</span> No Bibs <span>/</span> Just Show Up</p>
 
   <div class="countdown" id="countdown" aria-label="Countdown to run start">
     <div class="unit"><span class="num" id="cd-d">–</span><span class="lbl">Days</span></div>
