@@ -7,10 +7,11 @@
 <meta name="description" content="Completely Slothed Running Club presents the Epic North Run. 15 miles, out-and-back, Towne Lake, McKinney. Saturday 7/25, 5:30 AM. No signup, no fee, just show up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><text y=%22.9em%22 font-size=%2278%22 x=%2211%22>🦥</text></svg>">
 <style>
   :root {
+    --display: 'Space Grotesk', 'Inter', sans-serif;
     --black: #0c0c0c;
     --white: #ffffff;
     --paper: #f4f3ef;
@@ -30,6 +31,16 @@
     -webkit-font-smoothing: antialiased;
   }
   .u { text-transform: uppercase; letter-spacing: .1em; }
+
+  /* display typeface — Space Grotesk on all headings, labels, data and UI */
+  .announce, .nav .brand, .nav .navlink, .btn,
+  .hero .presents, .hero h1, .hero .subline, .hero .manifesto,
+  .countdown, .sec-head .no, .sec-head .ti,
+  .spec .k, .spec .v, .notice .tag, .notice h3,
+  .route-stats, .faq summary, .rsvp .lead, .rsvp h2, .rsvp .tickets span,
+  footer .club, footer .motto, footer .stamp .yr {
+    font-family: var(--display);
+  }
 
   /* ---------- ANNOUNCEMENT BAR ---------- */
   .announce {
@@ -134,10 +145,10 @@
     margin-bottom: 2rem;
   }
   .hero h1 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: clamp(2.9rem, 9vw, 6.7rem);
-    line-height: .95;
-    letter-spacing: -.01em;
+    line-height: .94;
+    letter-spacing: -.03em;
     text-transform: uppercase;
   }
   .hero .subline {
