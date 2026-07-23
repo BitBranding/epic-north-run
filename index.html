@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epic North Run — Saturday 7/25 · 5:30a · Towne Lake</title>
+<meta name="description" content="15 miles. 5:30a. Towne Lake, McKinney. High vibes without a freaking doubt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌅</text></svg>">
+<style>
+  :root {
+    --night: #0b1026;
+    --night-2: #141c3d;
+    --dawn: #ff7a45;
+    --dawn-soft: #ffb347;
+    --cream: #fff6ec;
+    --ink: #0b1026;
+    --muted: #9aa3c7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--night);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1.5rem 6rem;
+    position: relative;
+    background:
+      radial-gradient(ellipse 120% 55% at 50% 108%, rgba(255,122,69,.55) 0%, rgba(255,122,69,.18) 40%, transparent 70%),
+      radial-gradient(ellipse 80% 40% at 50% 112%, rgba(255,179,71,.7) 0%, transparent 60%),
+      linear-gradient(180deg, #070b1c 0%, var(--night) 45%, #2a1f4d 80%, #4a2c52 100%);
+  }
+  .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .stars span {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: .7;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle { 0%,100% { opacity:.15 } 50% { opacity:.8 } }
+
+  .kicker {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--dawn-soft);
+    margin-bottom: 1.25rem;
+  }
+  h1 {
+    font-size: clamp(3rem, 12vw, 7.5rem);
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, var(--cream) 40%, var(--dawn-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tagline {
+    margin-top: 1.5rem;
+    max-width: 34rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .tagline em { color: var(--cream); font-style: italic; }
+
+  .countdown {
+    display: flex;
+    gap: .75rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .countdown .unit {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+    padding: .9rem 1.1rem;
+    min-width: 84px;
+    backdrop-filter: blur(6px);
+  }
+  .countdown .num {
+    font-size: 2rem;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    color: var(--cream);
+    display: block;
+    line-height: 1.1;
+  }
+  .countdown .lbl {
+    font-size: .65rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .countdown.done .unit { border-color: var(--dawn); }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--dawn) 0%, var(--dawn-soft) 100%);
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 8px 30px rgba(255,122,69,.35);
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,122,69,.5); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 1.5rem;
+    color: var(--muted);
+    font-size: .75rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    animation: bob 2s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 5rem 1.5rem; max-width: 62rem; margin: 0 auto; }
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--dawn);
+    margin-bottom: 2rem;
+  }
+
+  /* details grid */
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background: var(--night-2);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 1.6rem;
+  }
+  .card .icon { font-size: 1.6rem; }
+  .card h3 {
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: .8rem 0 .35rem;
+    font-weight: 600;
+  }
+  .card p { font-size: 1.15rem; font-weight: 800; color: var(--cream); line-height: 1.35; }
+  .card .sub { font-size: .85rem; font-weight: 400; color: var(--muted); margin-top: .35rem; }
+  .card a { color: var(--dawn-soft); text-decoration: none; border-bottom: 1px solid rgba(255,179,71,.4); }
+  .card a:hover { border-bottom-color: var(--dawn-soft); }
+
+  /* map placeholder */
+  .map-box {
+    border: 2px dashed rgba(255,179,71,.35);
+    border-radius: 18px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--muted);
+  }
+  .map-box strong { color: var(--dawn-soft); display: block; font-size: 1.2rem; margin-bottom: .4rem; }
+
+  /* FAQ */
+  .faq details {
+    background: var(--night-2);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    margin-bottom: .75rem;
+    overflow: hidden;
+  }
+  .faq summary {
+    cursor: pointer;
+    padding: 1.2rem 1.4rem;
+    font-weight: 800;
+    font-size: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--dawn-soft);
+    flex-shrink: 0;
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .answer { padding: 0 1.4rem 1.3rem; color: var(--muted); }
+
+  /* RSVP */
+  .rsvp {
+    text-align: center;
+    background:
+      radial-gradient(ellipse 100% 80% at 50% 120%, rgba(255,122,69,.25) 0%, transparent 70%);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,.08);
+    padding: 4rem 1.5rem;
+  }
+  .rsvp h2 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -.02em;
+    margin-bottom: 1rem;
+  }
+  .rsvp p { color: var(--muted); max-width: 36rem; margin: 0 auto 1rem; }
+  .rsvp .allowed {
+    display: flex;
+    gap: .6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .rsvp .allowed span {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 999px;
+    padding: .5rem 1.1rem;
+    font-size: .85rem;
+    font-weight: 600;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem 4rem;
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  footer .ps { max-width: 34rem; margin: 0 auto .75rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="stars" id="stars"></div>
+  <p class="kicker">Saturday · 7/25 · 5:30a · Towne Lake</p>
+  <h1>Epic<br>North<br>Run</h1>
+  <p class="tagline"><em>"Not all those who wander are lost…"</em><br>
+  But all of those who wonder what their plans are for this weekend should wonder no more.
+  Yes, this is dad-joke territory. No, we don't care if you thought that was funny.</p>
+
+  <div class="countdown" id="countdown" aria-label="Countdown to run start">
+    <div class="unit"><span class="num" id="cd-d">–</span><span class="lbl">Days</span></div>
+    <div class="unit"><span class="num" id="cd-h">–</span><span class="lbl">Hours</span></div>
+    <div class="unit"><span class="num" id="cd-m">–</span><span class="lbl">Mins</span></div>
+    <div class="unit"><span class="num" id="cd-s">–</span><span class="lbl">Secs</span></div>
+  </div>
+
+  <a class="hero-cta" href="#details">Give me the details</a>
+  <div class="scroll-hint">↓ scroll</div>
+</header>
+
+<section id="details">
+  <p class="section-label">The Details</p>
+  <div class="details-grid">
+    <div class="card">
+      <div class="icon">📅</div>
+      <h3>Date &amp; Time</h3>
+      <p>Saturday 7/25 · 5:30a</p>
+      <p class="sub">Yes, that's AM. The sun will be jealous it slept in.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📍</div>
+      <h3>Location</h3>
+      <p><a href="https://maps.app.goo.gl/zvW85jDvANi1vA2a8" target="_blank" rel="noopener">Towne Lake, McKinney, TX</a></p>
+      <p class="sub">Tap for directions. Don't be the person who's "5 minutes out" at 5:29.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏃</div>
+      <h3>Distance</h3>
+      <p>15 miles</p>
+      <p class="sub">With options to add on, or cut off if you don't want to get better or have other obligations you don't care to share. Mostly judgement free.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⏱️</div>
+      <h3>Pace</h3>
+      <p>Whatever the group decides</p>
+      <p class="sub">But probably ~7 ish.</p>
+    </div>
+    <div class="card">
+      <div class="icon">💧</div>
+      <h3>Water</h3>
+      <p>2 stops · 4 chances</p>
+      <p class="sub">It's an out-and-back, so you'll pass each stop twice. Hydration math.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚻</div>
+      <h3>Restrooms</h3>
+      <p>Real ones. Plural.</p>
+      <p class="sub">A couple of places outside of nature, and not a portable toilet with poop already on the ground.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-label">The Route</p>
+  <div class="map-box">
+    <strong>🗺️ Map drops Thursday</strong>
+    Out-and-back from Towne Lake. Several ways to cut it short, or, if you want to get better, make it longer.
+  </div>
+</section>
+
+<section>
+  <p class="section-label">FAQ</p>
+  <div class="faq">
+    <details>
+      <summary>Will there be water stops?</summary>
+      <div class="answer">Yes, there will be approx. two water stops along the route, and since it's an out-and-back, you'll pass each one twice — four total potential stops.</div>
+    </details>
+    <details>
+      <summary>Will there be a place to use the restroom that won't be a portable toilet with poop on the ground already?</summary>
+      <div class="answer">Yes, there will be a couple of places outside of nature to use the restroom.</div>
+    </details>
+    <details>
+      <summary>Will there be a way to cut the route short?</summary>
+      <div class="answer">Yes, there are several ways to cut this route short. Or, if you want to get better, make it longer.</div>
+    </details>
+    <details>
+      <summary>Will this be an epic run with very high vibes?</summary>
+      <div class="answer">Without a freaking doubt. We hate hyping up runs before they happen, but "they'll" be talking about this run for years to come.</div>
+    </details>
+    <details>
+      <summary>I have another question.</summary>
+      <div class="answer">If it's relevant and wasn't covered above, drop it in the group chat and it will be answered.</div>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="rsvp">
+    <h2>In? Go "like" the message.</h2>
+    <p>This is your reminder to <strong>"like" the message in the group chat</strong> if you're coming. That's the whole RSVP system. It's beautiful in its simplicity.</p>
+    <p>Not coming? That's cool, but you'll miss out. No need to do anything but scroll on. ☺️</p>
+    <div class="allowed">
+      <span>👍 "Like" (required)</span>
+      <span>🔥 "Hell yes" (allowed)</span>
+      <span>🤩 "Wow, this is amazing" (allowed)</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="ps">p.s. Responding "Hell yes" does not exempt you from the "like."</p>
+  <p class="ps">p.s.s. See you at 5:30. Sharp. The vibes start on time.</p>
+</footer>
+
+<script>
+  // scatter stars in the hero
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('span');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 70 + '%';
+    s.style.animationDelay = (Math.random() * 3) + 's';
+    s.style.transform = 'scale(' + (0.5 + Math.random()) + ')';
+    stars.appendChild(s);
+  }
+
+  // countdown to Sat 7/25/2026 5:30 AM Central (CDT, UTC-5)
+  const target = new Date('2026-07-25T05:30:00-05:00').getTime();
+  const el = {
+    d: document.getElementById('cd-d'),
+    h: document.getElementById('cd-h'),
+    m: document.getElementById('cd-m'),
+    s: document.getElementById('cd-s')
+  };
+  function tick() {
+    let diff = target - Date.now();
+    if (diff <= 0) {
+      document.getElementById('countdown').classList.add('done');
+      el.d.textContent = '🏃';
+      el.h.textContent = '💨';
+      el.m.textContent = '🌅';
+      el.s.textContent = '🔥';
+      document.querySelectorAll('#countdown .lbl').forEach(l => l.textContent = 'GO');
+      return;
+    }
+    el.d.textContent = Math.floor(diff / 86400000);
+    el.h.textContent = String(Math.floor(diff / 3600000) % 24).padStart(2, '0');
+    el.m.textContent = String(Math.floor(diff / 60000) % 60).padStart(2, '0');
+    el.s.textContent = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+</script>
+
+</body>
+</html>
