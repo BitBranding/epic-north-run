@@ -191,6 +191,7 @@
     color: rgba(255,255,255,.5);
     margin-top: .45rem;
   }
+  .countdown.done .num { color: var(--hi); }
 
   /* ---------- SECTIONS ---------- */
   .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
@@ -253,7 +254,7 @@
   .rsvp p { color: rgba(255,255,255,.72); max-width: 34rem; margin: 0 auto 1rem; }
   .rsvp .tickets { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
   .rsvp .tickets span { border: 1px solid rgba(255,255,255,.4); padding: .6rem 1.2rem; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-  .rsvp .tickets .req { background: var(--white); color: var(--black); border-color: var(--white); }
+  .rsvp .tickets .req { background: var(--hi); color: var(--black); border-color: var(--hi); }
 
   /* footer */
   footer { background: var(--paper); text-align: center; padding: 3.5rem 1.5rem 4rem; }
@@ -424,6 +425,7 @@
   function tick() {
     let diff = target - Date.now();
     if (diff <= 0) {
+      document.getElementById('countdown').classList.add('done');
       el.d.textContent = 'GO';
       el.h.textContent = '·';
       el.m.textContent = '·';
