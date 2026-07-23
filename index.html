@@ -264,10 +264,15 @@
   footer .stamp .yr { font-size: .5rem; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; margin-top: .25rem; color: var(--muted); }
   footer .club { font-size: .82rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
   footer .motto { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .6rem; }
-  footer .stamp { cursor: pointer; transition: transform .2s ease; }
-  footer .stamp:hover { transform: rotate(-8deg); }
-  footer .egg { max-width: 30rem; margin: 1.6rem auto 0; padding: 1rem 1.2rem; border: 1px solid var(--ink); border-top: 4px solid var(--hi); font-size: .9rem; line-height: 1.5; color: var(--ink); text-align: left; }
-  footer .egg strong { font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; }
+  .sloth-egg { cursor: pointer; }
+  footer .stamp { transition: transform .2s ease; }
+  footer .stamp:hover, .nav .badge.sloth-egg:hover { transform: rotate(-8deg); }
+  .egg-overlay { position: fixed; inset: 0; background: rgba(12,12,12,.74); display: flex; align-items: center; justify-content: center; padding: 1.5rem; z-index: 50; }
+  .egg-overlay[hidden] { display: none; }
+  .egg-pop { background: var(--black); color: var(--white); border-top: 4px solid var(--hi); max-width: 24rem; width: 100%; padding: 2rem 1.8rem; text-align: center; }
+  .egg-pop p { font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.4rem; }
+  .egg-pop strong { font-family: var(--display); text-transform: uppercase; letter-spacing: .04em; }
+  .egg-close { background: var(--hi); color: var(--black); border: none; font-family: var(--display); font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .72rem 1.6rem; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -278,7 +283,7 @@
 </div>
 
 <nav class="nav">
-  <span class="brand"><span class="badge">🦥</span> Epic North Run</span>
+  <span class="brand"><span class="badge sloth-egg" role="button" tabindex="0" aria-label="Reveal the official decree">🦥</span> Epic North Run</span>
   <a class="navlink" href="#rsvp">RSVP</a>
 </nav>
 
@@ -412,12 +417,18 @@
 <footer>
   <p class="ps">p.s. Responding "Hell yes" does not exempt you from the "like."</p>
   <p class="ps">p.s.s. See you at 5:30. Sharp. The vibes start on time.</p>
-  <div class="stamp" id="stamp" role="button" tabindex="0" aria-label="Completely Slothed stamp"><span class="sl">🦥</span><span class="yr">Est. 2022</span></div>
+  <div class="stamp sloth-egg" role="button" tabindex="0" aria-label="Reveal the official decree"><span class="sl">🦥</span><span class="yr">Est. 2022</span></div>
   <p class="club">Completely Slothed Running Club</p>
   <p class="motto">Sometimes we run fast · Sometimes we're completely slothed · DFW</p>
-  <!-- Easter egg for the real ones: whatever you do, do NOT let Eric Bretl send that 2am "I'm gonna have to bail" text. He's running. Hide his phone if you must. 🦥 -->
-  <p class="egg" id="egg" hidden><strong>Official decree —</strong> Eric Bretl is hereby banned from sending a 2am "I don't think I'm gonna make it" text. 🦥</p>
+  <!-- Easter egg for the real ones: whatever you do, do NOT let Eric Bretl send that 2am "I'm gonna have to bail" text. He's running. Hide his phone if you must. Tap any sloth. 🦥 -->
 </footer>
+
+<div class="egg-overlay" id="eggOverlay" hidden>
+  <div class="egg-pop" role="dialog" aria-modal="true" aria-label="Official decree">
+    <p><strong>Official decree —</strong> Eric Bretl is hereby banned from sending a 2am "I don't think I'm gonna make it" text. 🦥</p>
+    <button class="egg-close" id="eggClose" type="button">Got it</button>
+  </div>
+</div>
 
 <script>
   // countdown to Sat 7/25/2026 5:30 AM Central (CDT, UTC-5)
@@ -428,14 +439,20 @@
     m: document.getElementById('cd-m'),
     s: document.getElementById('cd-s')
   };
-  // easter egg: tap the footer sloth stamp to reveal
+  // easter egg: tap any sloth to pop up the decree
   (function(){
-    var stamp = document.getElementById('stamp');
-    var egg = document.getElementById('egg');
-    if (stamp && egg) {
-      var reveal = function(){ egg.hidden = !egg.hidden; };
-      stamp.addEventListener('click', reveal);
-      stamp.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(); } });
+    var overlay = document.getElementById('eggOverlay');
+    var closeBtn = document.getElementById('eggClose');
+    if (overlay) {
+      var open = function(){ overlay.hidden = false; };
+      var shut = function(){ overlay.hidden = true; };
+      document.querySelectorAll('.sloth-egg').forEach(function(el){
+        el.addEventListener('click', open);
+        el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      if (closeBtn) closeBtn.addEventListener('click', shut);
+      overlay.addEventListener('click', function(e){ if (e.target === overlay) shut(); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') shut(); });
     }
     console.log('%c🦥 EPIC NORTH RUN', 'font-size:15px;font-weight:bold');
     console.log('%cRule #1: Eric Bretl does not get to bail at 2am. If he texts, we did not see it. He is running.', 'color:#0c0c0c');
