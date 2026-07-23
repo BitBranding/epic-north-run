@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Epic North Run — Saturday 7/25 · 5:30a · Towne Lake</title>
-<meta name="description" content="15 miles. 5:30a. Towne Lake, McKinney. High vibes without a freaking doubt.">
+<meta name="description" content="Completely Slothed Running Club presents the Epic North Run. 15 miles. 5:30a. Towne Lake, McKinney. High vibes without a freaking doubt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌅</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦥</text></svg>">
 <style>
   :root {
     --night: #0b1026;
@@ -18,6 +18,8 @@
     --cream: #fff6ec;
     --ink: #0b1026;
     --muted: #9aa3c7;
+    --alert: #ffd24a;
+    --alert-bg: #2a2410;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -29,15 +31,36 @@
     overflow-x: hidden;
   }
 
+  /* ---------- CLUB BAR ---------- */
+  .clubbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    padding: .7rem 1rem;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: #060912;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    position: relative;
+    z-index: 5;
+    text-align: center;
+  }
+  .clubbar .dot { color: var(--muted); }
+  .clubbar .est { color: var(--muted); }
+
   /* ---------- HERO ---------- */
   .hero {
-    min-height: 100svh;
+    min-height: 92svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 4rem 1.5rem 6rem;
+    padding: 3rem 1.5rem 6rem;
     position: relative;
     background:
       radial-gradient(ellipse 120% 55% at 50% 108%, rgba(255,122,69,.55) 0%, rgba(255,122,69,.18) 40%, transparent 70%),
@@ -55,12 +78,20 @@
   }
   @keyframes twinkle { 0%,100% { opacity:.15 } 50% { opacity:.8 } }
 
+  .presents {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--dawn-soft);
+    margin-bottom: .5rem;
+  }
   .kicker {
     font-size: .8rem;
     font-weight: 600;
     letter-spacing: .25em;
     text-transform: uppercase;
-    color: var(--dawn-soft);
+    color: var(--muted);
     margin-bottom: 1.25rem;
   }
   h1 {
@@ -80,7 +111,15 @@
     color: var(--muted);
     font-size: 1.05rem;
   }
-  .tagline em { color: var(--cream); font-style: italic; }
+  .tagline .quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--cream);
+    display: block;
+    margin-bottom: .5rem;
+  }
 
   .countdown {
     display: flex;
@@ -176,6 +215,36 @@
   .card a { color: var(--dawn-soft); text-decoration: none; border-bottom: 1px solid rgba(255,179,71,.4); }
   .card a:hover { border-bottom-color: var(--dawn-soft); }
 
+  /* getting there / closure alert */
+  .alert {
+    background: var(--alert-bg);
+    border: 1px solid rgba(255,210,74,.35);
+    border-left: 4px solid var(--alert);
+    border-radius: 16px;
+    padding: 1.6rem 1.8rem;
+  }
+  .alert .tag {
+    display: inline-block;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--alert);
+    margin-bottom: .8rem;
+  }
+  .alert h3 { font-size: 1.2rem; font-weight: 800; color: var(--cream); margin-bottom: .6rem; }
+  .alert p { color: #e8dcae; margin-bottom: .9rem; }
+  .alert p:last-child { margin-bottom: 0; }
+  .alert strong { color: var(--cream); }
+  .alert .plan {
+    background: rgba(255,210,74,.08);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-top: .3rem;
+  }
+  .alert .fine { font-size: .8rem; color: #b7a970; }
+  .alert a { color: var(--alert); }
+
   /* map placeholder */
   .map-box {
     border: 2px dashed rgba(255,179,71,.35);
@@ -256,17 +325,34 @@
     font-size: .85rem;
   }
   footer .ps { max-width: 34rem; margin: 0 auto .75rem; }
+  footer .club {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-top: 1.5rem;
+  }
+  footer .est { display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
 </style>
 </head>
 <body>
 
+<div class="clubbar">
+  <span>🦥 Completely Slothed Running Club</span>
+  <span class="dot">·</span>
+  <span class="est">Est. 2022</span>
+</div>
+
 <header class="hero">
   <div class="stars" id="stars"></div>
+  <p class="presents">Completely Slothed presents…</p>
   <p class="kicker">Saturday · 7/25 · 5:30a · Towne Lake</p>
   <h1>Epic<br>North<br>Run</h1>
-  <p class="tagline"><em>"Not all those who wander are lost…"</em><br>
-  But all of those who wonder what their plans are for this weekend should wonder no more.
-  Yes, this is dad-joke territory. No, we don't care if you thought that was funny.</p>
+  <p class="tagline">
+    <span class="quote">"Not all those who wander are lost…"</span>
+    But all of those who wonder what their plans are for this weekend should wonder no more.
+    Yes, this is dad-joke territory. No, we don't care if you thought that was funny.
+  </p>
 
   <div class="countdown" id="countdown" aria-label="Countdown to run start">
     <div class="unit"><span class="num" id="cd-d">–</span><span class="lbl">Days</span></div>
@@ -304,7 +390,7 @@
       <div class="icon">⏱️</div>
       <h3>Pace</h3>
       <p>Whatever the group decides</p>
-      <p class="sub">But probably ~7 ish.</p>
+      <p class="sub">But probably ~7 ish. Sometimes we run fast, sometimes we're completely slothed.</p>
     </div>
     <div class="card">
       <div class="icon">💧</div>
@@ -318,6 +404,20 @@
       <p>Real ones. Plural.</p>
       <p class="sub">A couple of places outside of nature, and not a portable toilet with poop already on the ground.</p>
     </div>
+  </div>
+</section>
+
+<section id="getting-there">
+  <p class="section-label">Getting There</p>
+  <div class="alert">
+    <span class="tag">⚠️ Heads up — US 75 overnight closures</span>
+    <h3>Driving up 75? Give yourself extra time.</h3>
+    <p>The City of Richardson has overnight closures on <strong>US 75 near Renner Road</strong> (just south of the President George Bush Turnpike) for DART Silver Line bridge work, <strong>July 23–26</strong>.</p>
+    <p>The part that affects our start: the <strong>Friday night closure runs until 6 a.m. Saturday</strong> and shuts <strong>both northbound and southbound US 75 main lanes</strong> near Renner Road. Since we roll out at 5:30 a.m., anyone driving north on 75 to Towne Lake will still be inside that window.</p>
+    <div class="plan">
+      <p><strong>The plan:</strong> Leave a few minutes early. Around Renner Rd / the PGBT, use the <strong>US 75 frontage roads</strong> to get around the closed main lanes, then hop back on 75 North. Follow the posted detour signs.</p>
+    </div>
+    <p class="fine">Closure schedule is subject to change with weather or construction. Details from the City of Richardson (<a href="https://www.cor.net/Home/Components/News/News/8806/73" target="_blank" rel="noopener">cor.net</a>). Not coming from the south on 75? You're probably in the clear.</p>
   </div>
 </section>
 
@@ -371,6 +471,7 @@
 <footer>
   <p class="ps">p.s. Responding "Hell yes" does not exempt you from the "like."</p>
   <p class="ps">p.s.s. See you at 5:30. Sharp. The vibes start on time.</p>
+  <p class="club">Completely Slothed Running Club <span class="est">Sometimes we run fast, sometimes we're completely slothed · DFW · Est. 2022</span></p>
 </footer>
 
 <script>
