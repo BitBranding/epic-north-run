@@ -3,489 +3,408 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Epic North Run — Saturday 7/25 · 5:30a · Towne Lake</title>
-<meta name="description" content="Completely Slothed Running Club presents the Epic North Run. 15 miles. 5:30a. Towne Lake, McKinney. High vibes without a freaking doubt.">
+<title>Epic North Run — Towne Lake · Sat 7.25 · 5:30 AM</title>
+<meta name="description" content="Completely Slothed Running Club presents the Epic North Run. 15 miles, out-and-back, Towne Lake, McKinney. Saturday 7/25, 5:30 AM. No signup, no fee, just show up.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦥</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><text y=%22.9em%22 font-size=%2278%22 x=%2211%22>🦥</text></svg>">
 <style>
   :root {
-    --night: #0b1026;
-    --night-2: #141c3d;
-    --dawn: #ff7a45;
-    --dawn-soft: #ffb347;
-    --cream: #fff6ec;
-    --ink: #0b1026;
-    --muted: #9aa3c7;
-    --alert: #ffd24a;
-    --alert-bg: #2a2410;
+    --black: #0c0c0c;
+    --white: #ffffff;
+    --paper: #f4f3ef;
+    --ink: #111110;
+    --muted: #6d6c64;
+    --line: rgba(17,17,16,.16);
+    --line-dk: rgba(255,255,255,.24);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--night);
-    color: var(--cream);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ---------- CLUB BAR ---------- */
-  .clubbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .6rem;
-    padding: .7rem 1rem;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--cream);
-    background: #060912;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    position: relative;
-    z-index: 5;
-    text-align: center;
-  }
-  .clubbar .dot { color: var(--muted); }
-  .clubbar .est { color: var(--muted); }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    min-height: 92svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 3rem 1.5rem 6rem;
-    position: relative;
-    background:
-      radial-gradient(ellipse 120% 55% at 50% 108%, rgba(255,122,69,.55) 0%, rgba(255,122,69,.18) 40%, transparent 70%),
-      radial-gradient(ellipse 80% 40% at 50% 112%, rgba(255,179,71,.7) 0%, transparent 60%),
-      linear-gradient(180deg, #070b1c 0%, var(--night) 45%, #2a1f4d 80%, #4a2c52 100%);
-  }
-  .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-  .stars span {
-    position: absolute;
-    width: 2px; height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    opacity: .7;
-    animation: twinkle 3s ease-in-out infinite;
-  }
-  @keyframes twinkle { 0%,100% { opacity:.15 } 50% { opacity:.8 } }
-
-  .presents {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.05rem;
-    color: var(--dawn-soft);
-    margin-bottom: .5rem;
-  }
-  .kicker {
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.25rem;
-  }
-  h1 {
-    font-size: clamp(3rem, 12vw, 7.5rem);
-    font-weight: 900;
-    line-height: .95;
-    letter-spacing: -.03em;
-    text-transform: uppercase;
-    background: linear-gradient(180deg, var(--cream) 40%, var(--dawn-soft) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .tagline {
-    margin-top: 1.5rem;
-    max-width: 34rem;
-    color: var(--muted);
-    font-size: 1.05rem;
-  }
-  .tagline .quote {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--cream);
-    display: block;
-    margin-bottom: .5rem;
-  }
-
-  .countdown {
-    display: flex;
-    gap: .75rem;
-    margin-top: 2.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .countdown .unit {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 14px;
-    padding: .9rem 1.1rem;
-    min-width: 84px;
-    backdrop-filter: blur(6px);
-  }
-  .countdown .num {
-    font-size: 2rem;
-    font-weight: 900;
-    font-variant-numeric: tabular-nums;
-    color: var(--cream);
-    display: block;
-    line-height: 1.1;
-  }
-  .countdown .lbl {
-    font-size: .65rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .countdown.done .unit { border-color: var(--dawn); }
-
-  .hero-cta {
-    margin-top: 2.5rem;
-    display: inline-block;
-    background: linear-gradient(135deg, var(--dawn) 0%, var(--dawn-soft) 100%);
+    background: var(--paper);
     color: var(--ink);
-    font-weight: 800;
-    text-decoration: none;
-    padding: 1rem 2.2rem;
-    border-radius: 999px;
-    font-size: 1rem;
-    transition: transform .15s ease, box-shadow .15s ease;
-    box-shadow: 0 8px 30px rgba(255,122,69,.35);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,122,69,.5); }
+  .u { text-transform: uppercase; letter-spacing: .1em; }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 1.5rem;
-    color: var(--muted);
-    font-size: .75rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    animation: bob 2s ease-in-out infinite;
-  }
-  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(6px) } }
-
-  /* ---------- SECTIONS ---------- */
-  section { padding: 5rem 1.5rem; max-width: 62rem; margin: 0 auto; }
-  .section-label {
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    color: var(--dawn);
-    margin-bottom: 2rem;
-  }
-
-  /* details grid */
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-  .card {
-    background: var(--night-2);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 18px;
-    padding: 1.6rem;
-  }
-  .card .icon { font-size: 1.6rem; }
-  .card h3 {
-    font-size: .7rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: .8rem 0 .35rem;
-    font-weight: 600;
-  }
-  .card p { font-size: 1.15rem; font-weight: 800; color: var(--cream); line-height: 1.35; }
-  .card .sub { font-size: .85rem; font-weight: 400; color: var(--muted); margin-top: .35rem; }
-  .card a { color: var(--dawn-soft); text-decoration: none; border-bottom: 1px solid rgba(255,179,71,.4); }
-  .card a:hover { border-bottom-color: var(--dawn-soft); }
-
-  /* getting there / closure alert */
-  .alert {
-    background: var(--alert-bg);
-    border: 1px solid rgba(255,210,74,.35);
-    border-left: 4px solid var(--alert);
-    border-radius: 16px;
-    padding: 1.6rem 1.8rem;
-  }
-  .alert .tag {
-    display: inline-block;
+  /* ---------- ANNOUNCEMENT BAR ---------- */
+  .announce {
+    background: var(--black);
+    color: var(--white);
     font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: .18em;
+    font-weight: 500;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--alert);
-    margin-bottom: .8rem;
-  }
-  .alert h3 { font-size: 1.2rem; font-weight: 800; color: var(--cream); margin-bottom: .6rem; }
-  .alert p { color: #e8dcae; margin-bottom: .9rem; }
-  .alert p:last-child { margin-bottom: 0; }
-  .alert strong { color: var(--cream); }
-  .alert .plan {
-    background: rgba(255,210,74,.08);
-    border-radius: 12px;
-    padding: 1rem 1.2rem;
-    margin-top: .3rem;
-  }
-  .alert .fine { font-size: .8rem; color: #b7a970; }
-  .alert a { color: var(--alert); }
-
-  /* map placeholder */
-  .map-box {
-    border: 2px dashed rgba(255,179,71,.35);
-    border-radius: 18px;
-    padding: 3rem 1.5rem;
-    text-align: center;
-    color: var(--muted);
-  }
-  .map-box strong { color: var(--dawn-soft); display: block; font-size: 1.2rem; margin-bottom: .4rem; }
-
-  /* FAQ */
-  .faq details {
-    background: var(--night-2);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 14px;
-    margin-bottom: .75rem;
-    overflow: hidden;
-  }
-  .faq summary {
-    cursor: pointer;
-    padding: 1.2rem 1.4rem;
-    font-weight: 800;
-    font-size: 1rem;
-    list-style: none;
+    padding: .62rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
   }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after {
-    content: '+';
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--dawn-soft);
-    flex-shrink: 0;
-    transition: transform .2s ease;
+  .announce .right { display: inline-flex; align-items: center; gap: .5rem; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .announce { justify-content: center; text-align: center; }
+    .announce .left { display: none; }
   }
-  .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq .answer { padding: 0 1.4rem 1.3rem; color: var(--muted); }
 
-  /* RSVP */
-  .rsvp {
-    text-align: center;
-    background:
-      radial-gradient(ellipse 100% 80% at 50% 120%, rgba(255,122,69,.25) 0%, transparent 70%);
-    border-radius: 24px;
-    border: 1px solid rgba(255,255,255,.08);
-    padding: 4rem 1.5rem;
-  }
-  .rsvp h2 {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 900;
-    letter-spacing: -.02em;
-    margin-bottom: 1rem;
-  }
-  .rsvp p { color: var(--muted); max-width: 36rem; margin: 0 auto 1rem; }
-  .rsvp .allowed {
+  /* ---------- NAV ---------- */
+  .nav {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 1rem 1.25rem;
     display: flex;
-    gap: .6rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
   }
-  .rsvp .allowed span {
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 999px;
-    padding: .5rem 1.1rem;
-    font-size: .85rem;
+  .nav .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .nav .brand .badge {
+    width: 26px; height: 26px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+  }
+  .nav .navlink {
+    font-size: .72rem;
     font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
   }
 
-  footer {
+  /* ---------- BUTTON ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
+    padding: .95rem 1.7rem;
+    font-size: .76rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .18s ease, color .18s ease;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.inv { border-color: var(--white); color: var(--white); }
+  .btn.inv:hover { background: var(--white); color: var(--black); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--black);
+    color: var(--white);
+    min-height: 86svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 3rem 1.5rem 4rem;
-    color: var(--muted);
-    font-size: .85rem;
+    padding: 5rem 1.5rem;
   }
-  footer .ps { max-width: 34rem; margin: 0 auto .75rem; }
-  footer .club {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--cream);
-    margin-top: 1.5rem;
+  .hero .presents {
+    font-size: .74rem;
+    font-weight: 500;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.62);
+    margin-bottom: 2rem;
   }
-  footer .est { display: block; font-family: 'Inter', sans-serif; font-style: normal; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
+  .hero h1 {
+    font-weight: 600;
+    font-size: clamp(2.9rem, 9vw, 6.7rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+  }
+  .hero .subline {
+    margin-top: 1.6rem;
+    font-size: .82rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+  }
+  .hero .subline i { color: rgba(255,255,255,.4); font-style: normal; margin: 0 .5rem; }
+  .hero .manifesto {
+    margin-top: 2.4rem;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--white);
+    border-top: 1px solid var(--line-dk);
+    border-bottom: 1px solid var(--line-dk);
+    padding: .8rem 0;
+  }
+  .hero .manifesto span { color: rgba(255,255,255,.45); margin: 0 .45rem; }
+  .hero .cta-row { margin-top: 2.6rem; }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown {
+    display: inline-flex;
+    margin-top: 2.6rem;
+    border: 1px solid var(--line-dk);
+  }
+  .countdown .unit {
+    padding: .85rem 1.15rem .65rem;
+    text-align: center;
+    border-right: 1px solid var(--line-dk);
+    min-width: 70px;
+  }
+  .countdown .unit:last-child { border-right: none; }
+  .countdown .num {
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1;
+    display: block;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .02em;
+  }
+  .countdown .lbl {
+    font-size: .56rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-top: .45rem;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+  section.block { padding: 4rem 0; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: .8rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-head .no { font-size: .72rem; font-weight: 700; color: var(--muted); letter-spacing: .1em; }
+  .sec-head .ti { font-size: .82rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+
+  /* spec */
+  .spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 3rem; }
+  .spec .row { padding: 1.3rem 0; border-top: 1px solid var(--line); }
+  .spec .row:nth-child(-n+2) { border-top: none; }
+  .spec .k { font-size: .64rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .45rem; }
+  .spec .v { font-size: 1.35rem; font-weight: 600; letter-spacing: -.01em; text-transform: uppercase; line-height: 1.1; }
+  .spec .v a { color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--ink); }
+  .spec .note { font-size: .92rem; color: var(--muted); margin-top: .55rem; line-height: 1.5; text-transform: none; letter-spacing: 0; font-weight: 400; }
+
+  /* notice (inverted) */
+  .notice { background: var(--black); color: var(--white); padding: 2.2rem 2rem; }
+  .notice .tag { font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+  .notice h3 { font-size: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 1rem; line-height: 1.05; }
+  .notice p { color: rgba(255,255,255,.82); margin-bottom: 1rem; }
+  .notice p:last-child { margin-bottom: 0; }
+  .notice strong { color: var(--white); font-weight: 600; }
+  .notice .plan { border-left: 2px solid var(--white); padding-left: 1.2rem; margin: 1.4rem 0; }
+  .notice .fine { font-size: .8rem; color: rgba(255,255,255,.5); }
+  .notice .fine a { color: rgba(255,255,255,.8); }
+
+  /* route */
+  .route-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; border: 1px solid var(--ink); padding: 2rem; }
+  .route-stats { display: flex; gap: 2.4rem; flex-wrap: wrap; }
+  .route-stats .st .n { font-size: 1.9rem; font-weight: 600; letter-spacing: -.02em; line-height: 1; }
+  .route-stats .st .l { font-size: .62rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; }
+  .route-note { font-size: .92rem; color: var(--muted); max-width: 30rem; margin-top: 1.2rem; }
+
+  /* faq */
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; padding: 1.2rem 0; font-weight: 600; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; flex-shrink: 0; line-height: 1; transition: transform .2s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .answer { padding: 0 0 1.4rem; color: var(--muted); max-width: 46rem; }
+
+  /* rsvp */
+  .rsvp { background: var(--black); color: var(--white); text-align: center; padding: 5rem 1.5rem; }
+  .rsvp .lead { font-size: .74rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 1.6rem; }
+  .rsvp h2 { font-size: clamp(2rem, 6.5vw, 3.8rem); font-weight: 600; text-transform: uppercase; line-height: .98; letter-spacing: -.01em; margin-bottom: 1.6rem; }
+  .rsvp p { color: rgba(255,255,255,.72); max-width: 34rem; margin: 0 auto 1rem; }
+  .rsvp .tickets { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+  .rsvp .tickets span { border: 1px solid rgba(255,255,255,.4); padding: .6rem 1.2rem; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+  .rsvp .tickets .req { background: var(--white); color: var(--black); border-color: var(--white); }
+
+  /* footer */
+  footer { background: var(--paper); text-align: center; padding: 3.5rem 1.5rem 4rem; }
+  footer .ps { color: var(--muted); font-size: .86rem; max-width: 34rem; margin: 0 auto .7rem; }
+  footer .stamp { width: 80px; height: 80px; border: 1.5px solid var(--ink); border-radius: 50%; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; margin: 2rem auto .8rem; line-height: 1; }
+  footer .stamp .sl { font-size: 1.7rem; }
+  footer .stamp .yr { font-size: .5rem; letter-spacing: .12em; font-weight: 700; text-transform: uppercase; margin-top: .25rem; color: var(--muted); }
+  footer .club { font-size: .82rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+  footer .motto { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .6rem; }
 </style>
 </head>
 <body>
 
-<div class="clubbar">
-  <span>🦥 Completely Slothed Running Club</span>
-  <span class="dot">·</span>
-  <span class="est">Est. 2022</span>
+<div class="announce">
+  <span class="left">Completely Slothed Running Club · Est. 2022</span>
+  <span class="right">Towne Lake, McKinney · Sat 7.25 →</span>
 </div>
 
+<nav class="nav">
+  <span class="brand"><span class="badge">🦥</span> Epic North Run</span>
+  <a class="navlink" href="#rsvp">RSVP</a>
+</nav>
+
 <header class="hero">
-  <div class="stars" id="stars"></div>
-  <p class="presents">Completely Slothed presents…</p>
-  <p class="kicker">Saturday · 7/25 · 5:30a · Towne Lake</p>
-  <h1>Epic<br>North<br>Run</h1>
-  <p class="tagline">
-    <span class="quote">"Not all those who wander are lost…"</span>
-    But all of those who wonder what their plans are for this weekend should wonder no more.
-    Yes, this is dad-joke territory. No, we don't care if you thought that was funny.
-  </p>
+  <p class="presents">Completely Slothed Running Club presents</p>
+  <h1>Epic<br>North Run</h1>
+  <p class="subline">Towne Lake, McKinney<i>·</i>Sat 7.25<i>·</i>5:30 AM</p>
+  <p class="manifesto">No Signup <span>/</span> No Fee <span>/</span> No Bibs <span>/</span> Just Show Up</p>
 
   <div class="countdown" id="countdown" aria-label="Countdown to run start">
     <div class="unit"><span class="num" id="cd-d">–</span><span class="lbl">Days</span></div>
-    <div class="unit"><span class="num" id="cd-h">–</span><span class="lbl">Hours</span></div>
-    <div class="unit"><span class="num" id="cd-m">–</span><span class="lbl">Mins</span></div>
-    <div class="unit"><span class="num" id="cd-s">–</span><span class="lbl">Secs</span></div>
+    <div class="unit"><span class="num" id="cd-h">–</span><span class="lbl">Hrs</span></div>
+    <div class="unit"><span class="num" id="cd-m">–</span><span class="lbl">Min</span></div>
+    <div class="unit"><span class="num" id="cd-s">–</span><span class="lbl">Sec</span></div>
   </div>
 
-  <a class="hero-cta" href="#details">Give me the details</a>
-  <div class="scroll-hint">↓ scroll</div>
+  <div class="cta-row"><a class="btn inv" href="#brief">Read the brief →</a></div>
 </header>
 
-<section id="details">
-  <p class="section-label">The Details</p>
-  <div class="details-grid">
-    <div class="card">
-      <div class="icon">📅</div>
-      <h3>Date &amp; Time</h3>
-      <p>Saturday 7/25 · 5:30a</p>
-      <p class="sub">Yes, that's AM. The sun will be jealous it slept in.</p>
-    </div>
-    <div class="card">
-      <div class="icon">📍</div>
-      <h3>Location</h3>
-      <p><a href="https://maps.app.goo.gl/zvW85jDvANi1vA2a8" target="_blank" rel="noopener">Towne Lake, McKinney, TX</a></p>
-      <p class="sub">Tap for directions. Don't be the person who's "5 minutes out" at 5:29.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🏃</div>
-      <h3>Distance</h3>
-      <p>15 miles</p>
-      <p class="sub">With options to add on, or cut off if you don't want to get better or have other obligations you don't care to share. Mostly judgement free.</p>
-    </div>
-    <div class="card">
-      <div class="icon">⏱️</div>
-      <h3>Pace</h3>
-      <p>Whatever the group decides</p>
-      <p class="sub">But probably ~7 ish. Sometimes we run fast, sometimes we're completely slothed.</p>
-    </div>
-    <div class="card">
-      <div class="icon">💧</div>
-      <h3>Water</h3>
-      <p>2 stops · 4 chances</p>
-      <p class="sub">It's an out-and-back, so you'll pass each stop twice. Hydration math.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🚻</div>
-      <h3>Restrooms</h3>
-      <p>Real ones. Plural.</p>
-      <p class="sub">A couple of places outside of nature, and not a portable toilet with poop already on the ground.</p>
-    </div>
-  </div>
-</section>
+<main class="wrap">
 
-<section id="getting-there">
-  <p class="section-label">Getting There</p>
-  <div class="alert">
-    <span class="tag">⚠️ Heads up — US 75 overnight closures</span>
-    <h3>Coming up from Dallas? Give yourself extra time.</h3>
-    <p>The City of Richardson has overnight closures on <strong>US 75 near Renner Road</strong> (just south of the President George Bush Turnpike) for DART Silver Line bridge work, <strong>July 23–26</strong>.</p>
-    <p>The part that affects our start: the <strong>Friday night closure runs until 6 a.m. Saturday</strong> and shuts <strong>both northbound and southbound US 75 main lanes</strong> near Renner Road. Since we roll out at 5:30 a.m., our <strong>Dallas crew driving up 75 from the south</strong> will still be inside that window.</p>
-    <div class="plan">
-      <p><strong>The plan:</strong> Punch <strong>Towne Lake into Google Maps or Waze right before you leave</strong> — it reroutes around whatever's actually closed that morning, so let it do the thinking. Give yourself an extra 10–15 minutes. (If you hit the closure near Renner Rd, the frontage roads are the usual way around.)</p>
+  <section class="block" id="brief">
+    <div class="sec-head"><span class="no">(01)</span><span class="ti">The Brief</span></div>
+    <div class="spec">
+      <div class="row">
+        <div class="k">Date &amp; Time</div>
+        <div class="v">Sat 7/25 · 5:30 AM</div>
+        <div class="note">Yes, that's AM. The sun will be jealous it slept in.</div>
+      </div>
+      <div class="row">
+        <div class="k">Location</div>
+        <div class="v"><a href="https://maps.app.goo.gl/zvW85jDvANi1vA2a8" target="_blank" rel="noopener">Towne Lake, McKinney</a></div>
+        <div class="note">Tap for directions. Don't be the person who's "5 minutes out" at 5:29.</div>
+      </div>
+      <div class="row">
+        <div class="k">Distance</div>
+        <div class="v">15 Miles</div>
+        <div class="note">Add on, or cut off if you don't want to get better or have other obligations you don't care to share. Mostly judgement free.</div>
+      </div>
+      <div class="row">
+        <div class="k">Pace</div>
+        <div class="v">~7 ish</div>
+        <div class="note">Whatever the group decides. Sometimes we run fast, sometimes we're completely slothed.</div>
+      </div>
+      <div class="row">
+        <div class="k">Water</div>
+        <div class="v">2 Stops · 4 Chances</div>
+        <div class="note">Out-and-back, so you'll pass each stop twice. Hydration math.</div>
+      </div>
+      <div class="row">
+        <div class="k">Restrooms</div>
+        <div class="v">Real Ones. Plural.</div>
+        <div class="note">A couple of places outside of nature, and not a portable toilet with poop already on the ground.</div>
+      </div>
     </div>
-    <p class="fine">Mainly a heads-up for the Dallas folks coming up 75 from the south. Coming from another direction? You're probably in the clear. Schedule is subject to change with weather or construction — details from the City of Richardson (<a href="https://www.cor.net/Home/Components/News/News/8806/73" target="_blank" rel="noopener">cor.net</a>).</p>
-  </div>
-</section>
+  </section>
 
-<section>
-  <p class="section-label">The Route</p>
-  <div class="map-box">
-    <strong>🗺️ Map drops Thursday</strong>
-    Out-and-back from Towne Lake. Several ways to cut it short, or, if you want to get better, make it longer.
-  </div>
-</section>
-
-<section>
-  <p class="section-label">FAQ</p>
-  <div class="faq">
-    <details>
-      <summary>Will there be water stops?</summary>
-      <div class="answer">Yes, there will be approx. two water stops along the route, and since it's an out-and-back, you'll pass each one twice — four total potential stops.</div>
-    </details>
-    <details>
-      <summary>Will there be a place to use the restroom that won't be a portable toilet with poop on the ground already?</summary>
-      <div class="answer">Yes, there will be a couple of places outside of nature to use the restroom.</div>
-    </details>
-    <details>
-      <summary>Will there be a way to cut the route short?</summary>
-      <div class="answer">Yes, there are several ways to cut this route short. Or, if you want to get better, make it longer.</div>
-    </details>
-    <details>
-      <summary>Will this be an epic run with very high vibes?</summary>
-      <div class="answer">Without a freaking doubt. We hate hyping up runs before they happen, but "they'll" be talking about this run for years to come.</div>
-    </details>
-    <details>
-      <summary>I have another question.</summary>
-      <div class="answer">If it's relevant and wasn't covered above, drop it in the group chat and it will be answered.</div>
-    </details>
-  </div>
-</section>
-
-<section>
-  <div class="rsvp">
-    <h2>In? Go "like" the message.</h2>
-    <p>This is your reminder to <strong>"like" the message in the group chat</strong> if you're coming. That's the whole RSVP system. It's beautiful in its simplicity.</p>
-    <p>Not coming? That's cool, but you'll miss out. No need to do anything but scroll on. ☺️</p>
-    <div class="allowed">
-      <span>👍 "Like" (required)</span>
-      <span>🔥 "Hell yes" (allowed)</span>
-      <span>🤩 "Wow, this is amazing" (allowed)</span>
+  <section class="block" id="getting-there">
+    <div class="sec-head"><span class="no">(02)</span><span class="ti">Getting There</span></div>
+    <div class="notice">
+      <div class="tag">⚠ Traffic Notice — US 75 Overnight Closures</div>
+      <h3>Coming up from Dallas? Give yourself extra time.</h3>
+      <p>The City of Richardson has overnight closures on <strong>US 75 near Renner Road</strong> (just south of the President George Bush Turnpike) for DART Silver Line bridge work, <strong>July 23–26</strong>.</p>
+      <p>The part that affects our start: the <strong>Friday night closure runs until 6 a.m. Saturday</strong> and shuts <strong>both northbound and southbound US 75 main lanes</strong> near Renner Road. Since we roll out at 5:30 a.m., our <strong>Dallas crew driving up 75 from the south</strong> will still be inside that window.</p>
+      <div class="plan">
+        <p><strong>The plan:</strong> Punch <strong>Towne Lake into Google Maps or Waze right before you leave.</strong> It reroutes around whatever's actually closed that morning, so let it do the thinking. Give yourself an extra 10 to 15 minutes. If you hit the closure near Renner Rd, the frontage roads are the usual way around.</p>
+      </div>
+      <p class="fine">Mainly a heads-up for the Dallas folks coming up 75 from the south. Coming from another direction? You're probably in the clear. Schedule is subject to change with weather or construction. Details from the City of Richardson (<a href="https://www.cor.net/Home/Components/News/News/8806/73" target="_blank" rel="noopener">cor.net</a>).</p>
     </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="no">(03)</span><span class="ti">The Route</span></div>
+    <div class="route-inner">
+      <div>
+        <div class="route-stats">
+          <div class="st"><div class="n">15.0<span style="font-size:.9rem"> mi</span></div><div class="l">Distance</div></div>
+          <div class="st"><div class="n">±335<span style="font-size:.9rem"> ft</span></div><div class="l">Elevation</div></div>
+          <div class="st"><div class="n">Out &amp; Back</div><div class="l">Format</div></div>
+        </div>
+        <p class="route-note">Out-and-back from Towne Lake. Several ways to cut it short, or, if you want to get better, make it longer.</p>
+      </div>
+      <a class="btn" href="https://footpathapp.com/routes/0671dbe4-616a-4126-b4de-90ab8c38f597" target="_blank" rel="noopener">View the route →</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="no">(04)</span><span class="ti">FAQ</span></div>
+    <div class="faq">
+      <details>
+        <summary>Will there be water stops?</summary>
+        <div class="answer">Yes, there will be approx. two water stops along the route, and since it's an out-and-back, you'll pass each one twice, so four total potential stops.</div>
+      </details>
+      <details>
+        <summary>Will there be a restroom that isn't a portable toilet with poop on the ground already?</summary>
+        <div class="answer">Yes, there will be a couple of places outside of nature to use the restroom.</div>
+      </details>
+      <details>
+        <summary>Will there be a way to cut the route short?</summary>
+        <div class="answer">Yes, there are several ways to cut this route short. Or, if you want to get better, make it longer.</div>
+      </details>
+      <details>
+        <summary>Will this be an epic run with very high vibes?</summary>
+        <div class="answer">Without a freaking doubt. We hate hyping up runs before they happen, but "they'll" be talking about this run for years to come.</div>
+      </details>
+      <details>
+        <summary>I have another question.</summary>
+        <div class="answer">If it's relevant and wasn't covered above, drop it in the group chat and it will be answered.</div>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<section class="rsvp" id="rsvp">
+  <p class="lead">(05) — RSVP</p>
+  <h2>In? Go "like"<br>the message.</h2>
+  <p>This is your reminder to <strong>"like" the message in the group chat</strong> if you're coming. That's the whole RSVP system. It's beautiful in its simplicity.</p>
+  <p>Not coming? That's cool, but you'll miss out. No need to do anything but scroll on.</p>
+  <div class="tickets">
+    <span class="req">👍 "Like" — required</span>
+    <span>🔥 "Hell yes" — allowed</span>
+    <span>🤩 "Wow, this is amazing" — allowed</span>
   </div>
 </section>
 
 <footer>
   <p class="ps">p.s. Responding "Hell yes" does not exempt you from the "like."</p>
   <p class="ps">p.s.s. See you at 5:30. Sharp. The vibes start on time.</p>
-  <p class="club">Completely Slothed Running Club <span class="est">Sometimes we run fast, sometimes we're completely slothed · DFW · Est. 2022</span></p>
+  <div class="stamp"><span class="sl">🦥</span><span class="yr">Est. 2022</span></div>
+  <p class="club">Completely Slothed Running Club</p>
+  <p class="motto">Sometimes we run fast · Sometimes we're completely slothed · DFW</p>
 </footer>
 
 <script>
-  // scatter stars in the hero
-  const stars = document.getElementById('stars');
-  for (let i = 0; i < 60; i++) {
-    const s = document.createElement('span');
-    s.style.left = Math.random() * 100 + '%';
-    s.style.top = Math.random() * 70 + '%';
-    s.style.animationDelay = (Math.random() * 3) + 's';
-    s.style.transform = 'scale(' + (0.5 + Math.random()) + ')';
-    stars.appendChild(s);
-  }
-
   // countdown to Sat 7/25/2026 5:30 AM Central (CDT, UTC-5)
   const target = new Date('2026-07-25T05:30:00-05:00').getTime();
   const el = {
@@ -497,12 +416,11 @@
   function tick() {
     let diff = target - Date.now();
     if (diff <= 0) {
-      document.getElementById('countdown').classList.add('done');
-      el.d.textContent = '🏃';
-      el.h.textContent = '💨';
-      el.m.textContent = '🌅';
-      el.s.textContent = '🔥';
-      document.querySelectorAll('#countdown .lbl').forEach(l => l.textContent = 'GO');
+      el.d.textContent = 'GO';
+      el.h.textContent = '·';
+      el.m.textContent = '·';
+      el.s.textContent = '·';
+      document.querySelectorAll('#countdown .lbl').forEach(l => l.textContent = 'Time');
       return;
     }
     el.d.textContent = Math.floor(diff / 86400000);
